@@ -10,7 +10,8 @@ namespace Board
     {
         public static void Main(string[] args)
         {
-            Board board = TileFinder.GetMovableTiles(new Point(3,5), 5, new Board(24, 24));
+           
+            Board board = TileFinder.GetMovableTiles(new Point(3,5), Dice.Roll(), new Board(24, 24));
             board.ShowBoard();
         }
     }

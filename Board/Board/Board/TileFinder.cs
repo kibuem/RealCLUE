@@ -37,7 +37,6 @@ namespace Board
                         board.Points[HorsePos.X - x, HorsePos.Y - y].isMovable = true;
                 }
             }
-
             return board;
         }
 
@@ -63,62 +62,10 @@ namespace Board
 
             return coordinateValues;
         }
-    }
 
-    public class Board
-    {
-        public Board(int x, int y)
+        public static Board RemoveDisableTiles(Point point, int dice, Board board)
         {
-            Points = new Point[x, y];
-
-            for (int i = 0; i < Points.GetLength(0); i++)
-            {
-                for (int j = 0; j < Points.GetLength(1); j++)
-                {
-                    Point point = new Point(i, j);
-                    point.isMovable = false;
-
-                    Points[i, j] = point;
-                }
-            }
-        }
-
-        public Point[,] Points { get; set; }
-
-        public void ShowBoard()
-        {
-            for (int i = 0; i < Points.GetLength(0); i++)
-            {
-                for (int j = 0; j < Points.GetLength(1); j++)
-                {
-                    Console.Write(Points[i, j].isMovable);
-                }
-                Console.WriteLine();
-            }
-        }
-    }
-
-    public class Point
-    {
-        public Point(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
-
-        public int X { get; set; }
-        public int Y { get; set; }
-        public bool isMovable { get; set; }
-
-        //점 이동에 사용
-        public Point Translate(Point HorsePos, Point MovePos)
-        {
-            return new Point(HorsePos.X + MovePos.X, HorsePos.Y + MovePos.Y);
-        }
-
-        public bool Equal(Point checkerPoint)
-        {
-            return X == checkerPoint.X && Y == checkerPoint.Y ? true : false;
+            throw new NotImplementedException();
         }
     }
 }
