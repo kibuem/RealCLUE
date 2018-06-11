@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Deck은 계속해서 생성할 필요 없이 한번만 생성하면 되므로, Singleton으로 설계하는 것이 맞을듯 하다.">
+    <Position X="8.302" Y="0.625" Height="0.75" Width="1.867" />
+  </Comment>
+  <Comment CommentText="Clue는 각기 다른 곳에서 Event를 구독하게 되므로, Singleton으로 설계하는 것이 맞을듯 하다.">
+    <Position X="0.5" Y="5.437" Height="0.938" Width="1.627" />
+  </Comment>
+  <Class Name="RealClueUML.Player">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAYIA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Dice">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.TileFinder">
+    <Position X="12.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>TileFinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Point">
+    <Position X="10.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAIAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAYAA=</HashCode>
+      <FileName>Point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.ClueType">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClueType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Place">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAgAAAAAACCBAAAAAAAAAAAAACAAEAAAAAAgA=</HashCode>
+      <FileName>Place.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Weapon">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgAAAAAAAAgAAAAEBAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Suspect">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAQAAABAAAAAAIAAAAABABAAA=</HashCode>
+      <FileName>Suspect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Clue">
+    <Position X="0.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CADAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Clue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.SetGameItemsEventArgs">
+    <Position X="2.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SetGameItemsEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.SetRoomItemsEventArgs">
+    <Position X="2.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SetRoomItemsEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Card">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <AssociationLine Name="CardType" Type="RealClueUML.CardType" FixedFromPoint="true">
+      <Path>
+        <Point X="7" Y="2.75" />
+        <Point X="7" Y="1.989" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.131" Y="0.279" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Card.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CardType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RealClueUML.Deck">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAgAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Deck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Room">
+    <Position X="8.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Game">
+    <Position X="12.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAABAgABAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueUML.Suggestion">
+    <Position X="8.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAABAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Suggestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="RealClueUML.CardType">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAEAAAAAAAAA=</HashCode>
+      <FileName>CardType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>
