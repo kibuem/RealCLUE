@@ -23,11 +23,7 @@ namespace EventDemo
             return card;
         }
 
-        public Card this[int cardIndex]
-        {
-            get { return GameCard[cardIndex]; }
-        }
-
+        // code coverage
         internal void PrepareNewRound()
         {
             GameCard.Clear();

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassCase\Card.cs" />
+    <Compile Include="ClassCase\Class1.cs" />
     <Compile Include="ClassCase\ClueType.cs" />
     <Compile Include="ClassCase\Clue.cs" />
     <Compile Include="ClassCase\Deck.cs" />
@@ -52,13 +53,26 @@
     <Compile Include="ClassCase\Player.cs" />
     <Compile Include="ClassCase\Program.cs" />
     <Compile Include="ClassCase\Room.cs" />
+    <Compile Include="ClassCase\RoomFactory.cs" />
     <Compile Include="ClassCase\Suggestion.cs" />
     <Compile Include="ClassCase\Suspect.cs" />
     <Compile Include="ClassCase\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

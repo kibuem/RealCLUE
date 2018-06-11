@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EventDemo.Properties;
+
 #endregion
 
 namespace EventDemo
@@ -23,32 +25,44 @@ namespace EventDemo
 
         private Deck()
         {
-            _cards = new List<Card>();
+            
         }
         #endregion
 
-        private List<Card> _cards;
+        private Stack<Card> _cards;
+//
+//        /// <summary>
+//        /// Deck을 다시 셔플한다
+//        /// </summary>
+//        public void PrepareNewRound()
+//        {
+//            _cards = _cards.OrderBy(x => Guid.NewGuid()).ToList();
+//            _index = 0;
+//
+//            //clue에서 data를 받아서 _card에 18장의 카드를 생성한다.
+//            Clue.Instance.GameStarting += CluePlayerDeck;
+//
+//            //이벤트 발생
+//            Clue.Instance.SetItems();
+//        }
 
-        private int _index = 0;
-
-        /// <summary>
-        /// Deck을 다시 셔플한다
-        /// </summary>
-        public void PrepareNewRound()
+        public void Initialize()
         {
-            _cards = _cards.OrderBy(x => Guid.NewGuid()).ToList();
-            _index = 0;
+            List<Card> cardList = new List<Card>();
 
-            //clue에서 data를 받아서 _card에 18장의 카드를 생성한다.
-            Clue.Instance.SetGameItems += Clue_SetPlayerDeck;
+            cardList.Add(new Card(Resources.Deck_Deck_Bathroom, CardType.Place));
+            cardList.Add(new Card("John", CardType.Suspect));
 
-            //이벤트 발생
-            Clue.Instance.SetItems();
+            _cards = new Stack<Card>(cardList.OrderBy(x => Guid.NewGuid()));
         }
 
-        public Card[] Draw(int SkipCount, int TakeCount)
+        public Card[] Draw(int takeCount)
         {
-            return _cards.Skip(SkipCount).Take(TakeCount).ToArray();
+            Card[] cards = new Card[takeCount];
+            for (int i = 0; i < takeCount; i++)
+                cards[i] = _cards.Pop();
+
+            return cards;
         }
 
         public int Size()
@@ -57,7 +71,7 @@ namespace EventDemo
         }
 
         #region Event Callbacks
-        private void Clue_SetPlayerDeck(object sender, Clue.SetGameItemsEventArgs e)
+        private void CluePlayerDeck(object sender, Clue.SetGameItemsEventArgs e)
         {
             Random random = new Random();
 
@@ -72,5 +86,18 @@ namespace EventDemo
             }
         }
         #endregion
+
+        public List<Card> GetCandidates(RoomId roomId)
+        {
+            var list = _cards.ToList();
+
+            var room = RoomFactory.Instance[roomId];
+
+            var cardsToReturn = new List<Card>();
+            cardsToReturn.AddRange(list.FindAll(x => x.CardType == CardType.Suspect || x.CardType == CardType.Weapon));
+            cardsToReturn.AddRange(list.FindAll(x => x.CardType == CardType.Place && (int)x.CardId == (int)room.RoomId));
+
+            return cardsToReturn;
+        }
     }
 }

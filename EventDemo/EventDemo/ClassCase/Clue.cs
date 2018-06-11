@@ -23,17 +23,18 @@ namespace EventDemo
 
         public Clue()
         {
-            clueLists = new Dictionary<Enum, List<string>>
+            clueLists = new Dictionary<CardType, List<string>>
             {
-                { CardType.Suspect, ClueType.GetAllItem(new Suspect()) },
-                { CardType.Place, ClueType.GetAllItem(new Place()) },
-                { CardType.Weapon, ClueType.GetAllItem( new Weapon()) }
+                { CardType.Place, ClueType.GetAllItem(new Place())},
+//                { CardType.Suspect, ClueType.GetAllItem(new Suspect()) },
+//                { CardType.Place, ClueType.GetAllItem(new Place()) },
+//                { CardType.Weapon, ClueType.GetAllItem( new Weapon()) }
             };
         }
 
         #endregion
 
-        public Dictionary<Enum, List<string>> clueLists;
+        public Dictionary<CardType, List<string>> clueLists;
 
         public void SetItems()
         {
@@ -45,13 +46,13 @@ namespace EventDemo
             OnSetRoomObjects(clueLists);
         }
 
-        #region SetGameItems event things for C# 3.0
-        public event EventHandler<SetGameItemsEventArgs> SetGameItems;
+        #region GameStarting event things for C# 3.0
+        public event EventHandler<SetGameItemsEventArgs> GameStarting;
 
         protected virtual void OnSetGameItems(SetGameItemsEventArgs e)
         {
-            if (SetGameItems != null)
-                SetGameItems(this, e);
+            if (GameStarting != null)
+                GameStarting(this, e);
         }
 
         private SetGameItemsEventArgs OnSetGameItems(Dictionary<Enum, List<string>> clues)

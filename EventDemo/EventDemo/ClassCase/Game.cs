@@ -20,7 +20,7 @@ namespace EventDemo
 
         public void StartGame()
         {
-            Clue.Instance.SetGameItems += Clue_SetAnswerCards;
+            Clue.Instance.GameStarting += ClueAnswerCards;
             Deck.Instance.PrepareNewRound();
         }
 
@@ -48,7 +48,7 @@ namespace EventDemo
         }
 
         #region Event Callbacks
-        private void Clue_SetAnswerCards(object sender, Clue.SetGameItemsEventArgs e)
+        private void ClueAnswerCards(object sender, Clue.SetGameItemsEventArgs e)
         {
             Random random = new Random();
             AnswerCards = new List<Card>();

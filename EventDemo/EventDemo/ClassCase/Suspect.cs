@@ -8,7 +8,7 @@ namespace EventDemo
 {
     public class Suspect : ClueType
     {
-        public static string Scarlet { get; } = "Scarlet";
+        public static string Scarlet { get; } = nameof(Scarlet);
         public static string Mustard { get; } = "Mustard";
         public static string White { get; } = "White";
         public static string Green { get; } = "Green";

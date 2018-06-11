@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace EventDemo
 {
-    class Suggestion
+    static class Suggestion
     {
-        public static readonly List<string> suggestions = new List<string>();
-        private static string suggestion;
+//        private List<Card> _suspects;
+//
+//        public Suggestion(RoomId roomId)
+//        {
+//            MakeSuggestion(roomId);
+//        }
+//
+//        public bool Check()
+//        {
+//            throw new NotImplementedException("Suggestion.Check");
+//        }
 
-        public static bool MakeSuggestion(Dictionary<string, Enum> roomObjs)
+        public static List<Card> MakeSuggestion(RoomId roomId)
         {
+            string suggestion;
+
             if (suggestions.Count >= 3)
             {
                 //TODO 추리에 반박하는 이벤트를 실행한다
@@ -20,9 +31,19 @@ namespace EventDemo
 
                 return false;
             }
-            
-            Console.WriteLine("추리 아이템을 하나씩 입력하세요:");
-            suggestion = Console.ReadLine();
+            //            
+            //                SuggestionNeededEventArgs args = new SuggestionNeededEventArgs();
+            //            OnSuggestionNeededForOut(args);
+            //
+            //            if (args.Canceled)
+            //                return;
+            //
+            //            suggestion = args.CardName;
+            //
+            //
+
+            List<Card> candidates = Deck.Instance.GetCandidates(roomId);
+
 
             #region For Console
             if (!roomObjs.Keys.ToArray().Contains(suggestion))
@@ -31,9 +52,12 @@ namespace EventDemo
                 return true;
             }
             #endregion
-            
+
             //Place 타입이면 추리를 무시한다
-            if ((CardType)roomObjs[suggestion] == CardType.Place)
+
+            Card card = candidates.Find(x => x.CardName == suggestion);
+
+            if (card.CardType == CardType.Place)
             {
                 return true;
             }
@@ -53,5 +77,47 @@ namespace EventDemo
 
 
         }
+
+        #region SuggestionNeeded event things for C# 3.0
+        public event EventHandler<SuggestionNeededEventArgs> SuggestionNeeded;
+
+        protected virtual void OnSuggestionNeeded(SuggestionNeededEventArgs e)
+        {
+            if (SuggestionNeeded != null)
+                SuggestionNeeded(this, e);
+        }
+
+        private SuggestionNeededEventArgs OnSuggestionNeeded(string cardName, bool canceled)
+        {
+            SuggestionNeededEventArgs args = new SuggestionNeededEventArgs(cardName, canceled);
+            OnSuggestionNeeded(args);
+
+            return args;
+        }
+
+        private SuggestionNeededEventArgs OnSuggestionNeededForOut()
+        {
+            SuggestionNeededEventArgs args = new SuggestionNeededEventArgs();
+            OnSuggestionNeeded(args);
+
+            return args;
+        }
+
+        public class SuggestionNeededEventArgs : EventArgs
+        {
+            public string CardName { get; set; }
+            public bool Canceled { get; set; }
+
+            public SuggestionNeededEventArgs()
+            {
+            }
+
+            public SuggestionNeededEventArgs(string cardName, bool canceled)
+            {
+                CardName = cardName;
+                Canceled = canceled;
+            }
+        }
+        #endregion
     }
 }
