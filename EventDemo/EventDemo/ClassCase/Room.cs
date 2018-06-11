@@ -11,10 +11,10 @@ namespace EventDemo
         public Room(string roomName)
         {
             _roomName = roomName;
-            Clue clue = new Clue();
-            clue.SetRoomObjects += Clue_SetRoomObjects;
 
-            clue.GetObjectDictionary();
+            Clue.Instance.SetRoomObjects += Clue_SetRoomObjects;
+
+            Clue.Instance.GetObjectDictionary();
         }
 
         private string _roomName;

@@ -20,14 +20,12 @@ namespace EventDemo
 
         public void StartGame()
         {
-            Clue clue = new Clue();
-            clue.SetGameItems += Clue_SetAnswerCards;
+            Clue.Instance.SetGameItems += Clue_SetAnswerCards;
+            Deck.Instance.PrepareNewRound();
         }
 
         public void DistributeCards()
         {
-            Deck.Instance.PrepareNewRound();
-
             foreach (var player in _players)
                 player.PrepareNewRound();
 

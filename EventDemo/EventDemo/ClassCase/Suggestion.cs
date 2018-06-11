@@ -16,6 +16,8 @@ namespace EventDemo
             if (suggestions.Count >= 3)
             {
                 //TODO 추리에 반박하는 이벤트를 실행한다
+
+
                 return false;
             }
             

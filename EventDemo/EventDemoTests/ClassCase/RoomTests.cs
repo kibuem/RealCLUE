@@ -30,6 +30,21 @@ namespace EventDemo.Tests
         }
 
         [TestMethod()]
+        public void 게임을_시작하고_정답_카드를_뽑는_이벤트_테스트()
+        {
+            Game game = new Game();
+            game.StartGame();
+        
+            foreach (var item in game.AnswerCards)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
+
+        }
+
+        [TestMethod()]
         public void 방의_추리_아이템을_얻는_이벤트_테스트()
         {
             Room room = new Room(Place.Courtyard);
