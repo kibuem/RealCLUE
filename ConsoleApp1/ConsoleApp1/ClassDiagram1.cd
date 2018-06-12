@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ConsoleApp1.Deck">
+    <Position X="4" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAAAAAAAAQEAAAAAAABACAAAAAAAQAAAgAAAAAA=</HashCode>
+      <FileName>Deck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.Player">
+    <Position X="4.25" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAIAAAAABA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.Program">
+    <Position X="9" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.Room">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.RoomFactory">
+    <Position X="0.5" Y="3.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAACAAAAAAAAAAAAgAAQAAAAAAAAAA=</HashCode>
+      <FileName>RoomFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.SuggestionDirector">
+    <Position X="7.5" Y="3.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SuggestionDirector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.Card">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ConsoleApp1.RoomId">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAoAAAAAACCBAAAAAAAAAAAAAAAAEAAAAAAgA=</HashCode>
+      <FileName>RoomId.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConsoleApp1.CardType">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAEAAAAAAAAA=</HashCode>
+      <FileName>CardType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConsoleApp1.CardId">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQgEAAAAoAAgIAACGBAAQAAABAAAAAAIAAEAABABCgA=</HashCode>
+      <FileName>CardId.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>
