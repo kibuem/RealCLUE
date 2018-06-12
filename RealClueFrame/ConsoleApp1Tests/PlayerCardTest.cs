@@ -21,25 +21,26 @@ namespace RealClueFrameTest
             Assert.AreEqual(3, CardCountNo);
         }
 
-        //[TestMethod]
-        //public void 플레이어가_랜덤으로_카드를_받았는지()
-        //{
-        //    PlayerMaker.Instance.SetPlayers();
+        [TestMethod]
+        public void 플레이어가_랜덤으로_카드를_받았는지()
+        {
+            PlayerMaker.Instance.SetPlayers();
 
-        //    Deck.Instance.Draw();
+            Deck.Instance.Draw();
 
-        //    List<Card> PlayerOneCards = new List<Card>();
+            List<Card> PlayerOneCards = new List<Card>();
 
-        //    PlayerOneCards = PlayerMaker.Instance.Players[0].GameCards;
+            PlayerOneCards = PlayerMaker.Instance.Players[0].GameCards;
 
-        //    PlayerMaker.Instance.SetPlayers();
+            PlayerMaker.Instance.SetPlayers();
 
-        //    Deck.Instance.Draw();
+            Deck.Instance.Draw();
 
-        //    foreach (var playerOneCard in PlayerOneCards)
-        //    {
-        //        Assert.IsFalse(PlayerMaker.Instance.Players[0].GameCards.Contains(playerOneCard)); 
-        //    }
+            foreach (var playerOneCard in PlayerOneCards)
+            {
+                Assert.IsFalse(PlayerMaker.Instance.Players[0].GameCards.Contains(playerOneCard));
+            }
+        }
     }
 }
 
