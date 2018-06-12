@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace RealClueFrame
 {
-    class Program
+    public class SuggestionDirector
     {
-        static void Main(string[] args)
-        {
-            
-        }
+        
+        
+        
     }
 }

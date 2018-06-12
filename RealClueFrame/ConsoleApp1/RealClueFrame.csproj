@@ -46,6 +46,7 @@
     <Compile Include="CardId.cs" />
     <Compile Include="CardType.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="AnswerChecker.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerMaker.cs" />
     <Compile Include="PlayerId.cs" />

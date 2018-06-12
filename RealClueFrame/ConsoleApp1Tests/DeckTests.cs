@@ -1,12 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleApp1;
+using RealClueFrame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Tests
+namespace RealClueFrameTest
 {
     [TestClass()]
     public class DeckTests

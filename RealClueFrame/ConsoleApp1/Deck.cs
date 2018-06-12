@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace RealClueFrame
 {
     public class Deck
     {
@@ -28,7 +28,7 @@ namespace ConsoleApp1
         }
         #endregion
 
-        private List<Card> _cards;
+        public List<Card> Cards { get; private set; }
 
         public Stack<Card> PlayerCards { get; private set; }
 
@@ -60,7 +60,7 @@ namespace ConsoleApp1
             cardList.Add(new Card(CardId.CandleStick, CardType.Weapon));
             cardList.Add(new Card(CardId.Wrench, CardType.Weapon));
 
-            _cards = new List<Card>(cardList.OrderBy(x => Guid.NewGuid()));
+            Cards = new List<Card>(cardList.OrderBy(x => Guid.NewGuid()));
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace ConsoleApp1
         public void GetAnswerCards()
         {
             AnswerCards = new List<Card>();
-            AnswerCards.AddRange(_cards.GroupBy(x => x.CardType).Select(x => x.First()));
+            AnswerCards.AddRange(Cards.GroupBy(x => x.CardType).Select(x => x.First()));
         }
 
         /// <summary>
@@ -78,7 +78,20 @@ namespace ConsoleApp1
         public void GetPlayerCards()
         {
             GetAnswerCards();
-            PlayerCards = new Stack<Card>(_cards.Except(AnswerCards));
+            PlayerCards = new Stack<Card>(Cards.Except(AnswerCards));
+        }
+
+        public void Draw()
+        {
+            GetPlayerCards();
+            var lists = PlayerMaker.Instance.Players;
+            for (int i = 1; i <= 3; i++)
+            {
+                foreach (var list in lists)
+                {
+                    list.AddCards(PlayerCards);
+                }
+            }
         }
     }
 }
