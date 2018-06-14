@@ -1,45 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace TEST01
 {
-    class WorldMap
+    public class WorldMap
     {
-        private static int x = 11;
-        private static int y = 11;
+        #region singleton
+        private static WorldMap _instance;
 
-        public Point[,] Map = new Point[y, x];
-        
-        public void GetWorldMap()
+        public static WorldMap Instance
         {
-            int a = 0, b = 0;
-            
-            for (int Y = 0; Y < y; Y++)
+            get
             {
-                for (int X = 0; X < x; X++)
-                {
-                    Point[] points = new Point[1];
-                    Point point = new Point((-x / 2) + a, (y / 2) - b);
-                    points[0] = point;
+                if (_instance == null)
+                    _instance = new WorldMap();
 
-                    Map[Y, X] = points[0];
-                    //Console.WriteLine(map[Y, X]);
-                    if (a >= x - 1)
-                    {
-                        a = 0;
-                    }
-                    else
-                    {
-                        a += 1;
-                    }
-                }
-                b += 1;
+                return _instance;
+            }
+        }
+
+        private WorldMap()
+        {
+            MaxX = 10;
+            MaxY = 15;
+        }
+        #endregion
+
+        public void Initialize(int maxX = 10, int maxY = 15)
+        {
+            MaxX = maxX;
+            MaxY = maxY;
+            
+            for (int i = 0; i < MaxX; i++)
+            for (int j = 0; j < MaxY; j++)
+                _points[i, j] = new Point(i, j);
+        }
+
+        public void BuildBlocksForTest()
+        {
+            _points[1, 0].Tile = Tile.Block;
+        }
+
+        public static int MaxX { get; private set; }
+        public static int MaxY { get; private set; }
+
+        private readonly Point[,] _points = new Point[MaxX, MaxY];
+
+        public List<Point> GetMovableArea(int x, int y, int dice)
+        {
+            return GetMovableArea(new Point(x, y), dice);
+        }
+
+        public List<Point> GetMovableArea(Point point, int dice)
+        {
+            throw new Exception();
+        }
+
+        public void MoveToNext(Point point, List<Point> points, int remainingDice)
+        {
+            Direction[] directions = (Direction[]) Enum.GetValues(typeof(Direction));
+
+            foreach (Direction direction in directions)
+            {
+//                if (point.Up != Point.Invlid && point.Up.Tile == Tile.Empty)
+//                    points.Add(point.Up);
+
+                if (point.HasEmptyNeighbor(direction) == false)
+                    continue;
+                
+                if (points.Contains(point[direction]))
+                    continue;
+
+                points.Add(point[direction]);
+
+                if (remainingDice > 0)
+                    MoveToNext(point[direction], points, remainingDice - 1);
             }
         }
     }
