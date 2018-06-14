@@ -16,6 +16,7 @@ namespace RealClueFrame
         Hall,
         Kitchen,
         BedRoom,
-        BathRoom
+        BathRoom,
+        Clue
     }
 }

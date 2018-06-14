@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1;
 
 namespace RealClueFrame
 {
@@ -10,7 +11,7 @@ namespace RealClueFrame
     {
         static void Main(string[] args)
         {
-            Deck.Instance.Draw();
+            GameDirector.Run();
         }
     }
 }

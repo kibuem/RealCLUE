@@ -15,13 +15,20 @@ namespace RealClueFrame
 
         public RoomId RoomId { get; private set; }
 
-        public void PlayerEntered(Player player)
-        {
-            player.GetCandidatedCards(RoomId, Deck.Instance.Cards);
+        private Player _player;
 
-            
+        public void PlayerEntered(Player _player)
+        {
+            _player.GetCandidatedCards(RoomId, Deck.Instance.Cards);
         }
 
+        public void CheckClueRoom()
+        {
+            AnswerChecker answerChecker = new AnswerChecker();
+
+            if (RoomId == RoomId.Clue)
+                answerChecker.GetWinner(_player);
+        }
         //#region EnteredPlayer event things for C# 3.0
         //public event EventHandler<EnteredPlayerEventArgs> EnteredPlayer;
 

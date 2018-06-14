@@ -21,7 +21,7 @@ namespace RealClueFrameTest
 
             AnswerChecker answerChecker = new AnswerChecker();
 
-            answerChecker.CheckAnswerCards(player);
+            answerChecker.GetWinner(player);
 
             Assert.AreEqual(true, true);
         }

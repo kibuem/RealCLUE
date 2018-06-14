@@ -47,9 +47,11 @@
     <Compile Include="CardType.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="AnswerChecker.cs" />
+    <Compile Include="GameDirector.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerMaker.cs" />
     <Compile Include="PlayerId.cs" />
+    <Compile Include="PlayerStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Room.cs" />
