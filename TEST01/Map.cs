@@ -121,7 +121,8 @@ namespace TEST01
         {
             for (int i = 0; i < MaxX; i++)
             for (int j = 0; j < MaxY; j++)
-                _points[i, j].Movable = false;
+                _points[i, j].Mark = (char) 0;
+            _points[point.X, point.Y].Mark = 'S';
             
             HashSet<Point> points = new HashSet<Point>();
 
@@ -135,8 +136,9 @@ namespace TEST01
                 .Where(x => x.Distance == dice || x.Tile == Tile.Room) // 거리가 주사위 만큼 떨어져있어야 함 (방은 예외)
                 .OrderBy(x => x.Value)
                 .ToList();
-            
-            pointsToReturn.ForEach(x => x.Movable = true);
+
+            foreach (var p in pointsToReturn)
+                _points[p.X, p.Y].Mark = 'O';
             
             return pointsToReturn;
         }
@@ -158,6 +160,10 @@ namespace TEST01
 
                 neighbor.Distance = distance;
                 points.Add(neighbor);
+
+                for (int i = 0; i < distance; i++)
+                    Console.Write("-");
+                Console.WriteLine(neighbor);
 
                 if (dice > distance)
                     MoveToNext(neighbor, dice, points, distance + 1);

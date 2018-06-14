@@ -13,9 +13,9 @@ namespace TEST01
     public enum Direction
     {
         Up,
-        Down,
-        Left, 
-        Right
+        Right,
+        Down, 
+        Left
     }
     
     public struct Point
@@ -28,7 +28,7 @@ namespace TEST01
             Y = y;
             Tile = tile;
             Distance = 0;
-            Movable = false;
+            _mark = (char) 0;
         }
 
         public static implicit operator Point(int value)
@@ -46,8 +46,8 @@ namespace TEST01
         /// 특정 점으로부터의 거리
         /// </summary>
         public int Distance { get; internal set; }
-        
-        public bool Movable { get; internal set; }
+
+        private char _mark;
 
         public int Value => X * Delimeter + Y;
 
@@ -141,15 +141,15 @@ namespace TEST01
 
         public override string ToString()
         {
-            return $"({X},{Y}) [V:{Value}] (D:{Distance})";
+            return $"({X:D2},{Y:D2}) [{Value:D4}] ({Distance})";
         }
 
         public char Mark
         {
             get
             {
-                if (Movable)
-                    return 'O';
+                if (_mark != 0)
+                    return _mark;
                 
                 switch (Tile)
                 {
@@ -163,6 +163,7 @@ namespace TEST01
                             throw new Exception();
                 }
             }
+            set { _mark = value; }
         }
     }
 }

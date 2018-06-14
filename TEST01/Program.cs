@@ -13,6 +13,7 @@ namespace TEST01
 
             //            List<Point> points = Map.Instance.GetMovableArea(0, 1);
             List<Point> points = Map.Instance.GetMovableArea(304, 5);
+            //List<Point> points = Map.Instance.GetMovableArea(102, 5);
             points.ForEach(x => Console.WriteLine(x));
 
             DisplyMap();
