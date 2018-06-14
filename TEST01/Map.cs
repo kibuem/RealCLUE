@@ -37,44 +37,44 @@ namespace TEST01
             InitializeCore(10, 15);
             
             // 룸 1
-            MarkAs(Tile.Block, 10, 11, 13, 14, 110, 111);
-            MarkAs(Tile.Room, 12);
+            ChangeTile(Tile.Block, 10, 11, 13, 14, 110, 111);
+            ChangeTile(Tile.Room, 12);
             
             // 룸 2
-            MarkAs(Tile.Block, 114, 214, 414);
-            MarkAs(Tile.Room, 314);
+            ChangeTile(Tile.Block, 114, 214, 414);
+            ChangeTile(Tile.Room, 314);
             
             // 룸 3
-            MarkAs(Tile.Block, 514, 614, 714, 814, 613, 713,813,512,612,712,812);
-            MarkAs(Tile.Room, 513);
+            ChangeTile(Tile.Block, 514, 614, 714, 814, 613, 713,813,512,612,712,812);
+            ChangeTile(Tile.Room, 513);
             
             // 룸 4
-            MarkAs(Tile.Block, 914,913,912,910,909,809);
-            MarkAs(Tile.Room, 911);
+            ChangeTile(Tile.Block, 914,913,912,910,909,809);
+            ChangeTile(Tile.Room, 911);
             
             // 룸 5
-            MarkAs(Tile.Block, 805,806,808,905,906,907,908);
-            MarkAs(Tile.Room, 807);
+            ChangeTile(Tile.Block, 805,806,808,905,906,907,908);
+            ChangeTile(Tile.Room, 807);
             
             // 룸 6
-            MarkAs(Tile.Block, 900,901,902,904);
-            MarkAs(Tile.Room, 903);
+            ChangeTile(Tile.Block, 900,901,902,904);
+            ChangeTile(Tile.Room, 903);
             
             // 룸 7
-            MarkAs(Tile.Block, 100,200,300,500,600,700,800,101,201,701,801);
-            MarkAs(Tile.Room, 400);
+            ChangeTile(Tile.Block, 100,200,300,500,600,700,800,101,201,701,801);
+            ChangeTile(Tile.Room, 400);
             
             // 룸 8
-            MarkAs(Tile.Block, 0,1,3);
-            MarkAs(Tile.Room, 2);
+            ChangeTile(Tile.Block, 0,1,3);
+            ChangeTile(Tile.Room, 2);
             
             // 룸 9
-            MarkAs(Tile.Block, 4,5,7,8,9);
-            MarkAs(Tile.Room, 6);
+            ChangeTile(Tile.Block, 4,5,7,8,9);
+            ChangeTile(Tile.Room, 6);
             
             // 클루 룸
-            MarkAs(Tile.Block, 305, 307, 405, 406, 407, 506, 605, 607);
-            MarkAs(Tile.Room, 306, 505, 507, 606);
+            ChangeTile(Tile.Block, 305, 307, 405, 406, 407, 506, 605, 607);
+            ChangeTile(Tile.Room, 306, 505, 507, 606);
         }
 
         private void InitializeCore(int maxX = 10, int maxY = 15)
@@ -93,11 +93,11 @@ namespace TEST01
         {
             InitializeCore(3, 3);
             
-            MarkAs(Tile.Room, 2);
-            MarkAs(Tile.Block, 100);
+            ChangeTile(Tile.Room, 2);
+            ChangeTile(Tile.Block, 100);
         }
 
-        private void MarkAs(Tile tile, params int[] values)
+        private void ChangeTile(Tile tile, params int[] values)
         {
             foreach (var value in values)
                 _points[value / Point.Delimeter, value % Point.Delimeter].Tile = tile;

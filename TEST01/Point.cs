@@ -141,10 +141,10 @@ namespace TEST01
 
         public override string ToString()
         {
-            return $"({X:D2},{Y:D2}) [{Value:D4}] ({Distance})";
+            return $"({X:X},{Y:X}) [{Distance}]";
         }
 
-        public char Mark
+        internal char Mark
         {
             get
             {
