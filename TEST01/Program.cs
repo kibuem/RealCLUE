@@ -11,14 +11,10 @@ namespace TEST01
 
         static void Main(string[] args)
         {
-            List<Point> points = WorldMap.Instance.GetMovableArea(1, 1, 2);
-            List<Point> points2 = WorldMap.Instance.GetMovableArea(2, 3, 2);
-//            
-//            WorldMap worldMap = new WorldMap();
-//            worldMap.GetWorldMap();
-//
-//            AreaCalculator areaCalculator = new AreaCalculator();
-//            areaCalculator.GetMovablePoints();
+            Map.Instance.Initialize(3,3);
+            Map.Instance.BuildBlocksForTest();
+            List<Point> points = Map.Instance.GetMovableArea(0x11, 1);
+            Console.WriteLine(points.Count);
         }
     }
 }

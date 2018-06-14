@@ -18,51 +18,41 @@ namespace TEST01
         Right
     }
     
-    public struct Point 
+    public struct Point
     {
+        private const int Mask = 0xFF;
+        
         public Point(int x, int y)
         {
             X = x;
             Y = y;
             Tile = Tile.Empty;
+            Distance = 0;
+        }
+
+        public static implicit operator Point(int value)
+        {
+            int x = (value >> 8) & Mask;
+            int y = value & Mask;
+            
+            return new Point(x, y);
         }
 
         public int X { get;  }
         public int Y { get;  }
-
-        public int Value => X * 100 + Y;
-
         public Tile Tile { get; set; }
+        /// <summary>
+        /// 특정 점으로부터의 거리
+        /// </summary>
+        public int Distance { get; set; }
 
-        public static Point Invlid = new Point(-1,-1);
+        public int Value => (X << 8) | Y;
 
-        public override bool Equals(object obj)
+
+        public static Point Invlid = new Point(-1, -1);
+
+        public Point GetNeighbor(Direction direction)
         {
-            Point other = (Point) obj;
-            return this.X == other.X && this.Y == other.Y;
-        }
-
-        public override int GetHashCode()
-        {
-            return X.GetHashCode() ^ Y.GetHashCode();
-        }
-
-        public bool HasEmptyNeighbor(Direction direction)
-        {
-            Point neighbor = this[direction];
-
-            if (neighbor.Equals(Invlid))
-                return false;
-            if (neighbor.Tile != Tile.Empty)
-                return false;
-
-            return true;
-        }
-        
-        public Point this[Direction direction]
-        {
-            get
-            {
                 switch (direction)
                 {
                     case Direction.Up:
@@ -76,14 +66,14 @@ namespace TEST01
                     default:
                         throw new Exception();
                 }        
-            }
         }
-        
+
+        #region neighbors
         public Point Up
         {
             get
             {
-                if (Y == WorldMap.MaxY - 1)
+                if (Y == Map.MaxY - 1)
                     return Invlid;
                 else
                     return new Point(X, Y + 1);
@@ -116,17 +106,40 @@ namespace TEST01
         {
             get
             {
-                if (X == WorldMap.MaxX - 1)
+                if (X == Map.MaxX - 1)
                     return Invlid;
                 else
                     return new Point(X + 1, Y);
             }
         }
+        #endregion
 
+        #region equals
+        public override bool Equals(object obj)
+        {
+            Point other = (Point) obj;
+            return this.X == other.X && this.Y == other.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            return X.GetHashCode() ^ Y.GetHashCode();
+        }
+        
+        public static bool operator ==(Point left, Point right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Point left, Point right)
+        {
+            return !(left == right);
+        }
+        #endregion
 
         public override string ToString()
         {
-            return $"좌표 : ({X}, {Y})";
+            return $"({X},{Y})";
         }
     }
 }

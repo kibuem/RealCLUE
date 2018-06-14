@@ -12,55 +12,65 @@ namespace TestProject1
         [SetUp]
         public void Init()
         {
-            WorldMap.Instance.Initialize(3,3);
-            WorldMap.Instance.BuildBlocksForTest();
+            Map.Instance.Initialize(3,3);
+            Map.Instance.BuildBlocksForTest();
         }
         
         [Test]
-        public void MoveToNextTest1()
+        public void 원점에서_1칸_이동()
         {
-            List<Point> points = new List<Point>();
-            WorldMap.Instance.MoveToNext(new Point(0, 0), points, 1);
+            // R * * 
+            // O * * 
+            // S X * 
+            
+            List<Point> points = Map.Instance.GetMovableArea(0, 1);
             
             Assert.AreEqual(1, points.Count);
-            
-            Assert.AreEqual(1, points[0].Value);
+            Assert.IsTrue(points.Contains(0x01));
         }
         
         [Test]
-        public void MoveToNextTest2()
+        public void 가운데에서_1칸_이동()
         {
-            List<Point> points = new List<Point>();
-            WorldMap.Instance.MoveToNext(new Point(0, 0), points, 2);
+            // R O * 
+            // O S O 
+            // * X * 
             
-            Assert.AreEqual(1, points.Count);
+            List<Point> points = Map.Instance.GetMovableArea(0x11, 1);
             
-            Assert.AreEqual(1, points[0].Value);
-        }
-        
-        [Test]
-        public void 장애물이없는경우()
-        {
-            List<Point> points = WorldMap.Instance.GetMovableArea(1, 1, 2);
-
             Assert.AreEqual(3, points.Count);
-            
-            Assert.AreEqual(103, points[0].Value);
-            Assert.AreEqual(202, points[1].Value);
-            Assert.AreEqual(301, points[2].Value);
+            Assert.IsTrue(points.Contains(0x01));
+            Assert.IsTrue(points.Contains(0x12));
+            Assert.IsTrue(points.Contains(0x21));
         }
         
         [Test]
-        public void 장애물이있는경우()
+        public void 원점에서_2칸_이동()
         {
-//            WorldMap.Instance.SetBlock(2, 1);
+            // R * * 
+            // * O * 
+            // S X * 
             
-            List<Point> points = WorldMap.Instance.GetMovableArea(1, 1, 2);
-
+            List<Point> points = Map.Instance.GetMovableArea(0, 2);
+            
             Assert.AreEqual(2, points.Count);
+            Assert.IsTrue(points.Contains(0x02));
+            Assert.IsTrue(points.Contains(0x11));
+        }
+        
+        [Test]
+        public void 원점에서_3칸_이동()
+        {
+            // R O * 
+            // * * O 
+            // S X * 
             
-            Assert.AreEqual(103, points[0].Value);
-            Assert.AreEqual(202, points[1].Value);
+            List<Point> points = Map.Instance.GetMovableArea(0, 2);
+            
+            Assert.AreEqual(3, points.Count);
+            Assert.IsTrue(points.Contains(0x12));
+            Assert.IsTrue(points.Contains(0x21));
+            Assert.IsTrue(points.Contains(0x02), "방에는 거리에 상관없이 들어갈 수 있음");
         }
     }
 }
