@@ -12,8 +12,8 @@ namespace TestProject1
         [TestInitialize]
         public void Init()
         {
-            Map.Instance.Initialize(3, 3);
-            Map.Instance.BuildBlocksForTest();
+//            Map.Instance.Initialize();
+            Map.Instance.InitializeForTest();
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace TestProject1
             List<Point> points = Map.Instance.GetMovableArea(0, 1);
 
             Assert.AreEqual(1, points.Count);
-            Assert.IsTrue(points.Contains(0x01));
+            Assert.IsTrue(points.Contains(1));
         }
 
         [TestMethod]
@@ -36,12 +36,12 @@ namespace TestProject1
             // O S O 
             // * X * 
 
-            List<Point> points = Map.Instance.GetMovableArea(0x11, 1);
+            List<Point> points = Map.Instance.GetMovableArea(101, 1);
 
             Assert.AreEqual(3, points.Count);
-            Assert.IsTrue(points.Contains(0x01));
-            Assert.IsTrue(points.Contains(0x12));
-            Assert.IsTrue(points.Contains(0x21));
+            Assert.IsTrue(points.Contains(1));
+            Assert.IsTrue(points.Contains(102));
+            Assert.IsTrue(points.Contains(201));
         }
 
         [TestMethod]
@@ -54,8 +54,8 @@ namespace TestProject1
             List<Point> points = Map.Instance.GetMovableArea(0, 2);
 
             Assert.AreEqual(2, points.Count);
-            Assert.IsTrue(points.Contains(0x02));
-            Assert.IsTrue(points.Contains(0x11));
+            Assert.IsTrue(points.Contains(2));
+            Assert.IsTrue(points.Contains(101));
         }
 
         [TestMethod]
@@ -65,12 +65,12 @@ namespace TestProject1
             // * * O 
             // S X * 
 
-            List<Point> points = Map.Instance.GetMovableArea(0, 2);
+            List<Point> points = Map.Instance.GetMovableArea(0, 3);
 
             Assert.AreEqual(3, points.Count);
-            Assert.IsTrue(points.Contains(0x12));
-            Assert.IsTrue(points.Contains(0x21));
-            Assert.IsTrue(points.Contains(0x02), "방에는 거리에 상관없이 들어갈 수 있음");
+            Assert.IsTrue(points.Contains(102));
+            Assert.IsTrue(points.Contains(201));
+            Assert.IsTrue(points.Contains(2), "방에는 거리에 상관없이 들어갈 수 있음");
         }
     }
 }

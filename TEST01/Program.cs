@@ -8,11 +8,28 @@ namespace TEST01
 
         static void Main(string[] args)
         {
-            Map.Instance.Initialize(3,3);
-            Map.Instance.BuildBlocksForTest();
-            List<Point> points = Map.Instance.GetMovableArea(0x11, 1);
+            Map.Instance.Initialize();
+            //            Map.Instance.InitializeForTest();
+
+            //            List<Point> points = Map.Instance.GetMovableArea(0, 1);
+            List<Point> points = Map.Instance.GetMovableArea(304, 5);
             points.ForEach(x => Console.WriteLine(x));
-            Console.WriteLine(points.Count);
+
+            DisplyMap();
+        }
+
+        static void DisplyMap()
+        {
+            for (int i = Map.MaxY - 1; i >= 0; i--)
+            {
+                for (int j = 0; j < Map.MaxX; j++)
+                {
+                    Console.Write(Map.Instance[j, i].Mark);
+                    Console.Write(' ');
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }

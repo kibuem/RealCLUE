@@ -20,34 +20,36 @@ namespace TEST01
     
     public struct Point
     {
-        private const int Mask = 0xFF;
-        
-        public Point(int x, int y)
+        public const int Delimeter = 100;
+
+        internal Point(int x, int y, Tile tile = Tile.Empty)
         {
             X = x;
             Y = y;
-            Tile = Tile.Empty;
+            Tile = tile;
             Distance = 0;
+            Movable = false;
         }
 
         public static implicit operator Point(int value)
         {
-            int x = (value >> 8) & Mask;
-            int y = value & Mask;
-            
-            return new Point(x, y);
+            return Map.Instance[value];
         }
 
         public int X { get;  }
+        
         public int Y { get;  }
-        public Tile Tile { get; set; }
+        
+        public Tile Tile { get; internal set; }
+
         /// <summary>
         /// 특정 점으로부터의 거리
         /// </summary>
-        public int Distance { get; set; }
+        public int Distance { get; internal set; }
+        
+        public bool Movable { get; internal set; }
 
-        public int Value => (X << 8) | Y;
-
+        public int Value => X * Delimeter + Y;
 
         public static Point Invlid = new Point(-1, -1);
 
@@ -76,7 +78,7 @@ namespace TEST01
                 if (Y == Map.MaxY - 1)
                     return Invlid;
                 else
-                    return new Point(X, Y + 1);
+                    return Map.Instance[X, Y + 1];
             }
         }
 
@@ -87,7 +89,7 @@ namespace TEST01
                 if (Y == 0)
                     return Invlid;
                 else
-                    return new Point(X, Y - 1);
+                    return Map.Instance[X, Y - 1];
             }
         }
 
@@ -98,7 +100,7 @@ namespace TEST01
                 if (X == 0)
                     return Invlid;
                 else
-                    return new Point(X - 1, Y);
+                    return Map.Instance[X - 1, Y];
             }
         }
 
@@ -109,7 +111,7 @@ namespace TEST01
                 if (X == Map.MaxX - 1)
                     return Invlid;
                 else
-                    return new Point(X + 1, Y);
+                    return Map.Instance[X + 1, Y];
             }
         }
         #endregion
@@ -118,7 +120,7 @@ namespace TEST01
         public override bool Equals(object obj)
         {
             Point other = (Point) obj;
-            return this.X == other.X && this.Y == other.Y;
+            return X == other.X && Y == other.Y;
         }
 
         public override int GetHashCode()
@@ -139,7 +141,28 @@ namespace TEST01
 
         public override string ToString()
         {
-            return $"({X},{Y})";
+            return $"({X},{Y}) [V:{Value}] (D:{Distance})";
+        }
+
+        public char Mark
+        {
+            get
+            {
+                if (Movable)
+                    return 'O';
+                
+                switch (Tile)
+                {
+                        case Tile.Empty:
+                            return ' ';
+                        case Tile.Block:
+                            return 'X';
+                        case Tile.Room:
+                            return 'R';
+                        default:
+                            throw new Exception();
+                }
+            }
         }
     }
 }
