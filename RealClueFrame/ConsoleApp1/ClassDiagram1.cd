@@ -1,74 +1,137 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="ConsoleApp1.Deck">
-    <Position X="4" Y="0.5" Width="2" />
+  <Class Name="RealClueFrame.Deck">
+    <Position X="6" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AQAEAAAAAAAAAQEAAAAAAABACAAAAAAAQAAAgAAAAAA=</HashCode>
+      <HashCode>AQAEAAAAAAAAAwEAAAAAAAAICAAAAAAAQAAAgAAAAAA=</HashCode>
       <FileName>Deck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp1.Player">
-    <Position X="4.25" Y="3.25" Width="3" />
+    <Position X="0.5" Y="9" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAIAAAAABA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConsoleApp1.Program">
-    <Position X="9" Y="2" Width="2" />
+  <Class Name="RealClueFrame.Program">
+    <Position X="3" Y="7" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp1.Room">
-    <Position X="6.5" Y="0.5" Width="2.25" />
+    <Position X="0.5" Y="7" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Room.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConsoleApp1.RoomFactory">
-    <Position X="0.5" Y="3.25" Width="3.5" />
+  <Class Name="RealClueFrame.RoomFactory">
+    <Position X="0.5" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAACAAAAAAAAAAAAgAAQAAAAAAAAAA=</HashCode>
       <FileName>RoomFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp1.SuggestionDirector">
-    <Position X="7.5" Y="3.5" Width="3.5" />
+    <Position X="0.5" Y="8" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SuggestionDirector.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ConsoleApp1.Card">
-    <Position X="0.5" Y="0.5" Width="3" />
+  <Class Name="RealClueFrame.Card">
+    <Position X="8.25" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Card.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="ConsoleApp1.RoomId">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+  <Class Name="RealClueFrame.Room">
+    <Position X="0.5" Y="3" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAoAAAAAACCBAAAAAAAAAAAAAAAAEAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAADAAAAAABAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueFrame.Player">
+    <Position X="11.75" Y="0.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAIAAABAAAAIAAAIABA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueFrame.PlayerMaker">
+    <Position X="11.75" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAIgAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>PlayerMaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp1.GameDirector">
+    <Position X="14" Y="6.25" Width="4.25" />
+    <NestedTypes>
+      <Class Name="ConsoleApp1.GameDirector.NewGameBegunEventArgs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameDirector.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAYAABAAAAAAIAgAAAAIAAI=</HashCode>
+      <FileName>GameDirector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RealClueFrame.AnswerChecker">
+    <Position X="14.5" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnswerChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="RealClueFrame.RoomId">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAoAAAAAACCBAAAAAAAAAAAAAAAAEAAAAAAwA=</HashCode>
       <FileName>RoomId.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ConsoleApp1.CardType">
-    <Position X="13" Y="0.5" Width="1.5" />
+  <Enum Name="RealClueFrame.CardType">
+    <Position X="8.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAEAAAAAAAAA=</HashCode>
       <FileName>CardType.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ConsoleApp1.CardId">
-    <Position X="11.25" Y="0.5" Width="1.5" />
+  <Enum Name="RealClueFrame.CardId">
+    <Position X="10" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQgEAAAAoAAgIAACGBAAQAAABAAAAAAIAAEAABABCgA=</HashCode>
       <FileName>CardId.cs</FileName>
     </TypeIdentifier>
   </Enum>
+  <Enum Name="RealClueFrame.PlayerId">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAQAAABAAAAAAIAAAAABABAAA=</HashCode>
+      <FileName>PlayerId.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ConsoleApp1.PlayerStatus">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="ConsoleApp1.NewRoundBeginningHandler">
+    <Position X="18.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameDirector.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
   <Font Name="Malgun Gothic" Size="9" />
 </ClassDiagram>
