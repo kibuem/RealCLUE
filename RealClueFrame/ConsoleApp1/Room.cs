@@ -20,6 +20,7 @@ namespace RealClueFrame
         public void PlayerEntered(Player _player)
         {
             _player.GetCandidatedCards(RoomId, Deck.Instance.Cards);
+            CheckClueRoom();
         }
 
         public void CheckClueRoom()
@@ -28,6 +29,9 @@ namespace RealClueFrame
 
             if (RoomId == RoomId.Clue)
                 answerChecker.GetWinner(_player);
+
+            if(RoomId != RoomId.Clue)
+                answerChecker.
         }
         //#region EnteredPlayer event things for C# 3.0
         //public event EventHandler<EnteredPlayerEventArgs> EnteredPlayer;

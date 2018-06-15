@@ -11,6 +11,27 @@ namespace ConsoleApp1
 
     public class GameDirector
     {
+        #region singleton
+        private static GameDirector _instance;
+
+        public static GameDirector Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new GameDirector();
+                return _instance;
+            }
+        }
+
+        private GameDirector()
+        {
+            _players = PlayerMaker.Instance.Players;
+            _turnNo = 1;
+            _runGame = true;
+        }
+        #endregion
+
         #region NewGameBegun event things for C# 3.0
         public event EventHandler<NewGameBegunEventArgs> NewGameBegun;
 
@@ -53,13 +74,6 @@ namespace ConsoleApp1
 
         private bool _runGame;
 
-        public GameDirector(PlayerMaker playerMaker)
-        {
-            _players = playerMaker.Players;
-            _turnNo = 1;
-            _runGame = true;
-        }
-
         public event NewRoundBeginningHandler NewRoundBeginning;
 
         private List<Player> _players;
@@ -87,6 +101,11 @@ namespace ConsoleApp1
             OnNewGameBegun();
             Deck.Instance.Draw();
             PlayerMaker.Instance.SetPlayers();
+        }
+
+        public void GoTurn()
+        {
+            _turnNo++;
         }
     }
 }

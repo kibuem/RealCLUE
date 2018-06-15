@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1;
 
 namespace RealClueFrame
 {
@@ -43,6 +44,18 @@ namespace RealClueFrame
             playerList.Add(new Player(PlayerId.Plum));
 
             Players = playerList;
+        }
+
+        public bool IsPlayerOn(Point point)
+        {
+            return false;
+        }
+
+        public HashSet<Point> PointsOfPlayers { get; } = new HashSet<Point>();
+
+        public void AddPlayerLocation(Point point)
+        {
+            PointsOfPlayers.Add(point);
         }
     }
 }
