@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TEST01
 {
@@ -9,11 +10,23 @@ namespace TEST01
         static void Main(string[] args)
         {
             Map.Instance.Initialize();
-            //            Map.Instance.InitializeForTest();
+            //Map.Instance.InitializeForTest();
 
-            //            List<Point> points = Map.Instance.GetMovableArea(0, 1);
-//            List<Point> points = Map.Instance.GetMovableArea(304, 5);
-            List<Point> points = Map.Instance.GetMovableArea(313, 5);
+            List<Point> pointsToGo = new List<Point>();
+            List<Point> roomPoints = new List<Point>{37,47,57,67 };
+            foreach (var roomPoint in roomPoints)
+            {
+                List<Point> list = Map.Instance.GetMovableArea(roomPoint, 2);
+                pointsToGo.AddRange(list);
+            }
+
+            List<Point> points = pointsToGo.Distinct().ToList();
+            
+
+
+            //List<Point> points = Map.Instance.GetMovableArea(102, 2);
+//            List<Point> points = Map.Instance.GetMovableArea(304, 3);
+            //List<Point> points = Map.Instance.GetMovableArea(313, 5);
             //List<Point> points = Map.Instance.GetMovableArea(102, 5);
             points.ForEach(x => Console.WriteLine(x));
 

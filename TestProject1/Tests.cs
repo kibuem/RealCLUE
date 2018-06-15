@@ -55,7 +55,7 @@ namespace TestProject1
 
             Assert.AreEqual(2, points.Count);
             Assert.IsTrue(points.Contains(2));
-            Assert.IsTrue(points.Contains(101));
+            Assert.IsTrue(points.Contains(new Point(1,1)));
         }
 
         [TestMethod]

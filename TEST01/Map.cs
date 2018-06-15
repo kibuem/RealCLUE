@@ -117,6 +117,12 @@ namespace TEST01
             return GetMovableArea(Instance[x, y], dice);
         }
 
+        /// <summary>
+        /// 특정 점에서 이동할 수 있는 점의 목록을 반환한다.
+        /// </summary>
+        /// <param name="point">이동을 시작할 점</param>
+        /// <param name="dice">주사위</param>
+        /// <returns></returns>
         public List<Point> GetMovableArea(Point point, int dice)
         {
             for (int i = 0; i < MaxX; i++)
@@ -143,6 +149,13 @@ namespace TEST01
             return pointsToReturn;
         }
 
+        /// <summary>
+        /// 다음 점으로 이동한다.
+        /// </summary>
+        /// <param name="point">이동을 시작하는 점</param>
+        /// <param name="dice">주사위</param>
+        /// <param name="points">이동이 가능한 점들의 집합</param>
+        /// <param name="distance">특정점에서 떨어진 거리</param>
         private void MoveToNext(Point point, int dice, HashSet<Point> points, int distance)
         {
             foreach (Direction direction in _directions)

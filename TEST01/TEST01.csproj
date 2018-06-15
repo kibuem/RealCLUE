@@ -4,4 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <LangVersion>6</LangVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETFRAMEWORK;NET461;TEST</DefineConstants>
+  </PropertyGroup>
 </Project>
