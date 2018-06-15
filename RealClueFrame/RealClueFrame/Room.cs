@@ -15,11 +15,28 @@ namespace RealClueFrame
 
         public RoomId RoomId { get; private set; }
 
-        public void PlayerEntered(Player player)
-        {
-            player.GetCandidatedCards(RoomId, Deck.Instance.Cards);
+        private Player _player;
 
-            
+        /// <summary>
+        /// 플레이어가 방에 입장하면 후보 카드를 가져온다, 플레이어가 입장한 방이 클루 룸인지 확인한다.
+        /// </summary>
+        /// <param name="_player"></param>
+        public void PlayerEntered(Player _player)
+        {
+            _player.GetCandidatedCards(RoomId, Deck.Instance.Cards);
+
+            CheckClueRoom();
+
+            //TODO 다음 반박자를 가져오도록 하는 대상을 구해야 한다.
+            Player disprovingPlayer = _player.GetNextDisprovingPlayer(3);
+        }
+
+        public void CheckClueRoom()
+        {
+            AnswerChecker answerChecker = new AnswerChecker();
+
+            if (RoomId == RoomId.Clue)
+                answerChecker.GetWinner(_player);
         }
 
         //#region EnteredPlayer event things for C# 3.0

@@ -65,7 +65,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp1\RealClueFrame.csproj">
+    <ProjectReference Include="..\RealClueFrame\RealClueFrame.csproj">
       <Project>{616C8790-A91B-4A8B-BD22-DB0FA09A33D2}</Project>
       <Name>RealClueFrame</Name>
     </ProjectReference>

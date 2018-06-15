@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealClueFrame", "RealClueFrame\RealClueFrame.csproj", "{616C8790-A91B-4A8B-BD22-DB0FA09A33D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealClueFrameTest", "RealClueFrameTests\RealClueFrameTest.csproj", "{F5E82BB0-20F6-46C0-B746-DDCBD3A85986}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealClueFrame", "RealClueFrame.csproj", "{616C8790-A91B-4A8B-BD22-DB0FA09A33D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,15 +15,11 @@ Global
 		{616C8790-A91B-4A8B-BD22-DB0FA09A33D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{616C8790-A91B-4A8B-BD22-DB0FA09A33D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{616C8790-A91B-4A8B-BD22-DB0FA09A33D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5E82BB0-20F6-46C0-B746-DDCBD3A85986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5E82BB0-20F6-46C0-B746-DDCBD3A85986}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5E82BB0-20F6-46C0-B746-DDCBD3A85986}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5E82BB0-20F6-46C0-B746-DDCBD3A85986}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {917814AF-7A96-4C89-8EDE-E2ECCEDDA9C0}
+		SolutionGuid = {293C38D6-68A3-4BD4-A1A2-9FB651A9CCF8}
 	EndGlobalSection
 EndGlobal

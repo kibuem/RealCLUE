@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace RealClueFrame
 {
-    class Program
+    public enum PlayerStatus
     {
-        static void Main(string[] args)
-        {
-            Deck.Instance.Draw();
-        }
+        Loser,
+        OnPlaying
     }
 }
