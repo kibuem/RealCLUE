@@ -14,13 +14,13 @@ namespace TEST01
     {
         Up,
         Right,
-        Down, 
+        Down,
         Left
     }
-    
+
     public struct Point
     {
-        public const int Delimeter = 100;
+        public const int Delimiter = 100;
 
         internal Point(int x, int y, Tile tile = Tile.Empty)
         {
@@ -28,7 +28,7 @@ namespace TEST01
             Y = y;
             Tile = tile;
             Distance = 0;
-            _mark = (char) 0;
+            _mark = (char)0;
         }
 
         public static implicit operator Point(int value)
@@ -36,10 +36,10 @@ namespace TEST01
             return Map.Instance[value];
         }
 
-        public int X { get;  }
-        
-        public int Y { get;  }
-        
+        public int X { get; }
+
+        public int Y { get; }
+
         public Tile Tile { get; internal set; }
 
         /// <summary>
@@ -49,25 +49,25 @@ namespace TEST01
 
         private char _mark;
 
-        public int Value => X * Delimeter + Y;
+        public int Value => X * Delimiter + Y;
 
-        public static Point Invlid = new Point(-1, -1);
+        public static Point Invalid = new Point(-1, -1);
 
         public Point GetNeighbor(Direction direction)
         {
-                switch (direction)
-                {
-                    case Direction.Up:
-                        return Up;
-                    case Direction.Down:
-                        return Down;
-                    case Direction.Left:
-                        return Left;
-                    case Direction.Right:
-                        return Right;
-                    default:
-                        throw new Exception();
-                }        
+            switch (direction)
+            {
+                case Direction.Up:
+                    return Up;
+                case Direction.Down:
+                    return Down;
+                case Direction.Left:
+                    return Left;
+                case Direction.Right:
+                    return Right;
+                default:
+                    throw new Exception();
+            }
         }
 
         #region neighbors
@@ -75,8 +75,8 @@ namespace TEST01
         {
             get
             {
-                if (Y == Map.MaxY - 1)
-                    return Invlid;
+                if (Y == Map.MaxY + 1)
+                    return Invalid;
                 else
                     return Map.Instance[X, Y + 1];
             }
@@ -86,8 +86,8 @@ namespace TEST01
         {
             get
             {
-                if (Y == 0)
-                    return Invlid;
+                if (Y == Map.MaxY - 15)
+                    return Invalid;
                 else
                     return Map.Instance[X, Y - 1];
             }
@@ -97,8 +97,8 @@ namespace TEST01
         {
             get
             {
-                if (X == 0)
-                    return Invlid;
+                if (X == Map.MaxX - 1)
+                    return Invalid;
                 else
                     return Map.Instance[X - 1, Y];
             }
@@ -108,8 +108,8 @@ namespace TEST01
         {
             get
             {
-                if (X == Map.MaxX - 1)
-                    return Invlid;
+                if (X == Map.MaxX + 10)
+                    return Invalid;
                 else
                     return Map.Instance[X + 1, Y];
             }
@@ -119,7 +119,7 @@ namespace TEST01
         #region equals
         public override bool Equals(object obj)
         {
-            Point other = (Point) obj;
+            Point other = (Point)obj;
             return X == other.X && Y == other.Y;
         }
 
@@ -127,7 +127,7 @@ namespace TEST01
         {
             return X.GetHashCode() ^ Y.GetHashCode();
         }
-        
+
         public static bool operator ==(Point left, Point right)
         {
             return left.Equals(right);
@@ -150,17 +150,17 @@ namespace TEST01
             {
                 if (_mark != 0)
                     return _mark;
-                
+
                 switch (Tile)
                 {
-                        case Tile.Empty:
-                            return ' ';
-                        case Tile.Block:
-                            return 'X';
-                        case Tile.Room:
-                            return 'R';
-                        default:
-                            throw new Exception();
+                    case Tile.Empty:
+                        return ' ';
+                    case Tile.Block:
+                        return 'X';
+                    case Tile.Room:
+                        return 'R';
+                    default:
+                        throw new Exception();
                 }
             }
             set { _mark = value; }

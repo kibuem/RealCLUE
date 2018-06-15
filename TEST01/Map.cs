@@ -36,43 +36,43 @@ namespace TEST01
         {
             InitializeCore(10, 15);
             
-            // 룸 1
+            // 룸 1: BedRoom
             ChangeTile(Tile.Block, 10, 11, 13, 14, 110, 111);
             ChangeTile(Tile.Room, 12);
             
-            // 룸 2
+            // 룸 2: BathRoom
             ChangeTile(Tile.Block, 114, 214, 414);
             ChangeTile(Tile.Room, 314);
             
-            // 룸 3
+            // 룸 3: Library
             ChangeTile(Tile.Block, 514, 614, 714, 814, 613, 713,813,512,612,712,812);
             ChangeTile(Tile.Room, 513);
             
-            // 룸 4
+            // 룸 4: Kitchen
             ChangeTile(Tile.Block, 914,913,912,910,909,809);
             ChangeTile(Tile.Room, 911);
             
-            // 룸 5
+            // 룸 5: DiningRoom
             ChangeTile(Tile.Block, 805,806,808,905,906,907,908);
             ChangeTile(Tile.Room, 807);
             
-            // 룸 6
+            // 룸 6: Hall
             ChangeTile(Tile.Block, 900,901,902,904);
             ChangeTile(Tile.Room, 903);
             
-            // 룸 7
+            // 룸 7: Yard
             ChangeTile(Tile.Block, 100,200,300,500,600,700,800,101,201,701,801);
             ChangeTile(Tile.Room, 400);
             
-            // 룸 8
+            // 룸 8: Garage
             ChangeTile(Tile.Block, 0,1,3);
             ChangeTile(Tile.Room, 2);
             
-            // 룸 9
+            // 룸 9: GameRoom
             ChangeTile(Tile.Block, 4,5,7,8,9);
             ChangeTile(Tile.Room, 6);
             
-            // 클루 룸
+            // Clue 룸: 
             ChangeTile(Tile.Block, 305, 307, 405, 406, 407, 506, 605, 607);
             ChangeTile(Tile.Room, 306, 505, 507, 606);
         }
@@ -82,6 +82,7 @@ namespace TEST01
             MaxX = maxX;
             MaxY = maxY;
 
+           
             _points = new Point[MaxX, MaxY];
             
             for (int i = 0; i < MaxX; i++)
@@ -89,18 +90,19 @@ namespace TEST01
                 _points[i, j] = new Point(i, j);
         }
 
-        public void InitializeForTest()
-        {
-            InitializeCore(3, 3);
+        //For Test
+        //public void InitializeForTest()
+        //{
+        //    InitializeCore(3, 3);
             
-            ChangeTile(Tile.Room, 2);
-            ChangeTile(Tile.Block, 100);
-        }
+        //    ChangeTile(Tile.Room, 2);
+        //    ChangeTile(Tile.Block, 100);
+        //}
 
         private void ChangeTile(Tile tile, params int[] values)
         {
             foreach (var value in values)
-                _points[value / Point.Delimeter, value % Point.Delimeter].Tile = tile;
+                _points[value / Point.Delimiter, value % Point.Delimiter].Tile = tile;
         }
 
         public static int MaxX { get; set; }
@@ -110,7 +112,7 @@ namespace TEST01
         private static Direction[] _directions;
 
         public Point this[int x, int y] => _points[x, y];
-        public Point this[int value] => _points[value / Point.Delimeter, value % Point.Delimeter];
+        public Point this[int value] => _points[value / Point.Delimiter, value % Point.Delimiter];
         
         public List<Point> GetMovableArea(int x, int y, int dice)
         {
@@ -149,6 +151,8 @@ namespace TEST01
             return pointsToReturn;
         }
 
+        
+
         /// <summary>
         /// 다음 점으로 이동한다.
         /// </summary>
@@ -162,21 +166,21 @@ namespace TEST01
             {
                 Point neighbor = point.GetNeighbor(direction);
 
-                if (neighbor == Point.Invlid)
+                if (neighbor == Point.Invalid)
                     continue;
 
                 if (neighbor.Tile == Tile.Block)
                     continue;
 
-                if (points.Contains(neighbor))
-                    continue;
+                //if (points.Contains(neighbor))
+                //    continue;
 
                 neighbor.Distance = distance;
                 points.Add(neighbor);
 
-                for (int i = 0; i < distance; i++)
-                    Console.Write("-");
-                Console.WriteLine(neighbor);
+                //for (int i = 0; i < distance; i++)
+                //    Console.Write("-");
+                //Console.WriteLine(neighbor);
 
                 if (dice > distance)
                     MoveToNext(neighbor, dice, points, distance + 1);
