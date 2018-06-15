@@ -18,12 +18,12 @@ namespace RealClueFrame
             for (int i = 0; i < 3; i++)
             {
                 if (answerList[i] != candidateList[i])
+                    MakeLoser(player);
                     break;
             }
             return player;
         }
-
-        // TODO : Clue 방에서 player가 추리를 실패했을 경우, PlayerList에서 뺄지
+        
         public void MakeLoser(Player player)
         {
             player.PlayerStatus = PlayerStatus.Loser;
